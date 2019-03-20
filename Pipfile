@@ -59,6 +59,8 @@ wordcloud = "==1.5.0"
 "oauth2client" = "*"
 django-mathfilters = "*"
 python-pptx = "*"
+google-cloud-kms = "*"
+backoff = "*"
 
 [dev-packages]
 ipdb = "*"
