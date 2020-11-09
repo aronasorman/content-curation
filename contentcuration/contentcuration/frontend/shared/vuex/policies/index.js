@@ -79,11 +79,12 @@ export default {
         const policiesList = getters.getPolicies(policies);
         return Object.entries(policiesList)
           .map(([key, value]) => {
+            // consider this a non-accepted policy
             // if they never signed anything, or the last thing
-            // they signed isn't equal to the latest policy
+            // they signed is less than the last issued policy's date
             if (
               !value.lastSignedPolicy ||
-              value.latest.getTime() != value.lastSignedPolicy.getTime()
+              value.latest.getTime() >= value.signedOn.getTime()
             ) {
               return key;
             }
